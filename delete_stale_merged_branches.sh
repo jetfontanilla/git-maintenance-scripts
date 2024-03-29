@@ -2,6 +2,7 @@
 
 function init() {
     git fetch --prune "origin"
+    # modify this to whitelist particular branch name patterns
     ALL_BRANCH_LIST="$(git branch -r | grep -v "origin/master" | grep -v "origin/hotfix" | grep -v "origin/release")"
     ALL_BRANCH_ARRAY=($ALL_BRANCH_LIST)
     declare -a DELETE_BRANCH_LIST=()
