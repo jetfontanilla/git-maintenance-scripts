@@ -30,7 +30,8 @@ function delete_stale_branches() {
 function create_delete_list() {
     for branch in ${ALL_BRANCH_ARRAY[@]}
     do
-        #Ahead list includes the behind and ahead commit counts
+        # Ahead list includes the behind and ahead commit counts
+        # Change branch name to compare here. in case you're using something else instead of master
         AHEAD_LIST=$(git rev-list --left-right --count origin/master...$branch)
         AHEAD_ARRAY=($AHEAD_LIST)
         if [[ ${AHEAD_ARRAY[1]} -eq 0 && ${AHEAD_ARRAY[0]} -gt 0 ]]
